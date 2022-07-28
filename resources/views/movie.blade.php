@@ -6,25 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Movie DB</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
-    <div class="container text-center py-3">
+    <div class="container text-center py-5">
 
-        <div class="row g-4">
+        <div class="row row-cols-5 g-5">
             
             @foreach ($movies as $movie)
             <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $movie['title'] }}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">{{ $movie['original_title'] }}</h6>
-                        <div><span class="card-text text-success">Nationality:</span> {{ $movie['nationality'] }}</div>
-                        <div><span class="card-text text-success">Date:</span> {{ $movie['date'] }}</div>
-                        <div><span class="card-text text-danger">Vote:</span> {{ $movie['vote'] }}</div>
+
+                <div class="my-card">
+                    <div class="titolo">
+                        <h1 class="card-title">{{ $movie['title'] }}</h1>
+                    </div>
+                    <div class="my-card-body">
+                        <small class="my-card-subtitle">{{ $movie['original_title'] }}</small>
+                        <div><span class="card-text">Nationality:</span> {{ $movie['nationality'] }}</div>
+                        <div><span class="card-text">Date:</span> {{ $movie['date'] }}</div>
+                        <div><span class="card-text">Vote:</span> {{ $movie['vote'] }}</div>
                     </div>
                 </div>
+
             </div>
             @endforeach
 
